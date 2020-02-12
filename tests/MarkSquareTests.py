@@ -40,5 +40,6 @@ class MarkSquareTests(unittest.TestCase):
         self.beforeAfterTest.mark_square(0, 0, 'X')
         self.assertListEqual(self.beforeAfterTest.board, self.afterMarkSquareBoard)
 
+
 if __name__ == '__main__':
     unittest.main()
