@@ -1,5 +1,5 @@
 import unittest
-from .. import Board
+from Board import Board
 
 
 class CheckFullBoardTests(unittest.TestCase):
