@@ -12,12 +12,6 @@ class GameDriver(object):
         pass
 
     def play_game(self):
-        """
-        Takes moves from raw_input as comma-separated list in form (column, row, player)
-            and makes a move. When a winner has been determined, the game ends
-
-        :return: (str) the letter representing the player who won
-        """
 
         while not self.game_over():
             self.board.print()
