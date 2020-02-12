@@ -15,22 +15,17 @@ class GameDriver(object):
 
         while not self.game_over():
             self.board.print()
-            row, column, player_symbol = self.get_current_player().getMove()
-            while self.board.mark_square(column, row, player_symbol) is not True:
-                print("That space is taken.")
-                self.board.print()
-                row, column, player_symbol = self.get_current_player().getMove()
-
+            self.player_move()
             self.next_player()
 
         self.end_game()
 
     def end_game(self):
 
-        if not self.board.has_winner:
+        if not self.board.has_winner():
             print("Stalemate :(")
         else:
-            winner_symbol = self.board.has_winner
+            winner_symbol = self.board.has_winner()
             for player in self.players:
                 if player.playerCharacter == winner_symbol:
                     print("Player {} Wins!".format(player.playerCharacter))
@@ -46,3 +41,10 @@ class GameDriver(object):
 
     def next_player(self):
         self.current_player = (self.current_player + 1) % len(self.players)
+
+    def player_move(self):
+        row, column, player_symbol = self.get_current_player().getMove()
+        while self.board.mark_square(column, row, player_symbol) is not True:
+            print("That space is taken.")
+            self.board.print()
+            row, column, player_symbol = self.get_current_player().getMove()
